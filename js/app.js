@@ -39,9 +39,7 @@ app.controller('CartController', ['$scope', function($scope) {
 		var total = 0;
 
 		angular.forEach($scope.invoice.cart, function(item) {
-			angular.forEach($scope.invoice.cart, function(item) {
 				total += item.prijs;
-			});
 		});
 
 		return total;
