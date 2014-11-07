@@ -9,11 +9,11 @@
 <body>
 	<div ng-controller="CartController">
 		<h1>Shopping cart</h1> <h3>Winkelwagen: {{ total() | currency : "€" }}</h3>
-		<div class="item" style="margin:15px;display:inline-block;border:1px solid black; width:150px;text-align:center;padding-bottom:10px;" ng-repeat="item in invoice.items">
-			<h3>Naam: {{ item.naam }}</h3>
-			<h5>Prijs: {{ item.prijs }}</h5>
-			<h5>In stock: {{ item.voorraad }}</h5>
-			<button ng-disabled="item.voorraad == 0" ng-click="addToCart(item)">Add to cart</button>
+		<div class="item" style="margin:15px;display:inline-block;border:1px solid black; width:150px;text-align:center;padding-bottom:10px;" ng-repeat="item in products">
+			<h3>Naam: {{ item.name }}</h3>
+			<h5>Prijs: {{ item.price }}</h5>
+			<h5>In stock: {{ item.stock }}</h5>
+			<button ng-disabled="item.stock == 0" ng-click="addToCart(item)">Add to cart</button>
 		</div>
 
 		<h3><a href="checkout.html">Go to checkout</a></h3>
