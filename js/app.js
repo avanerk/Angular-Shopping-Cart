@@ -62,7 +62,7 @@ app.controller('CartController', ['$scope', '$store', function($scope, $store) {
 
 	$scope.clear = function() {
 
-		angular.forEach($scope.cart, function(item, key) {
+		angular.forEach($scope.cart[0], function(item, key) {
 			$scope.cart.splice(key, 1);
 		});
 
