@@ -1,6 +1,9 @@
-var app = angular.module('shoppingCart', []);
+var app = angular.module('shoppingCart', ['localStorage']);
 
-app.controller('CartController', ['$scope', function($scope) {
+app.controller('CartController', ['$scope', '$store', function($scope, $store) {
+
+	$store.bind($scope, 'cart', []);
+
 
 	$scope.invoice = {
 		//Dit wordt later vervangen door een functie die alle items uit de database haalt.
@@ -19,15 +22,15 @@ app.controller('CartController', ['$scope', function($scope) {
 			naam: 'Kat',
 			prijs: 89.95
 		}],
-		cart: []
+		cart: $scope.cart
 	};
-
+	
 	$scope.addToCart = function(item) {
-		$scope.invoice.cart.push(item);
+		$scope.cart.push(item);
+
+		$store.set('cart', $scope.cart);
 
 		item.hoeveelheid -= 1;
-
-		console.log($scope.invoice.cart);
 	};
 
 	$scope.removeItem = function(index) {
@@ -44,5 +47,11 @@ app.controller('CartController', ['$scope', function($scope) {
 
 		return total;
 	};
+
+}]);
+
+app.controller('CheckoutController', ['$scope', '$store', function($scope, $store) {
+
+	$scope.kek = $store.get('cart');
 
 }]);
