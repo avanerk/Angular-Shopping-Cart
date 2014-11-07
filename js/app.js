@@ -60,9 +60,17 @@ app.controller('CartController', ['$scope', '$store', function($scope, $store) {
 
 	};
 
+	$scope.clear = function() {
+
+		angular.forEach($scope.cart, function(item, key) {
+			$scope.cart.splice(key, 1);
+		});
+
+	};
+
 	$scope.removeItem = function(index) {
 		$scope.invoice.items.splice(index, 1);
-	}
+	};
 
 	$scope.total = function() {
 

@@ -15,8 +15,12 @@
 			<h5>In stock: {{ item.voorraad }}</h5>
 			<button ng-disabled="item.voorraad == 0" ng-click="addToCart(item)">Add to cart</button>
 		</div>
+
+		<h3><a href="checkout.html">Go to checkout</a></h3>
+	<h3><a href ng-click="clear()">Clear cart</a></h3>
+
 	</div>
-	<h3><a href="checkout.html">Go to checkout</a></h3>
+	
 <script src="js/app.js"></script>
 </body>
 </html>
