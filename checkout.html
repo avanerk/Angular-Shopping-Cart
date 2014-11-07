@@ -9,10 +9,12 @@
 <body>
 	<div ng-controller="CheckoutController">
 		<h1>Checkout</h1>
-		<div class="item" style="margin:15px;display:inline-block;border:1px solid black; width:150px;text-align:center;padding-bottom:10px;" ng-repeat="item in kek track by $index">
+		<div class="item" style="margin:15px;display:inline-block;border:1px solid black; width:150px;text-align:center;padding-bottom:10px;" ng-repeat="item in cart track by $index">
 			<h3>Naam: {{ item.naam }}</h3>
-			<h5>Prijs: {{ item.prijs }}</h5>
+			<h5>Stuk Prijs: {{ item.prijs }}</h5>
+			<h5>Stuks: {{ item.hoeveelheid }}</h5>
 		</div>
+		<h2>Totaal: {{ total() | currency : "€" }}</h2>
 	</div>
 <script src="js/app.js"></script>
 </body>
